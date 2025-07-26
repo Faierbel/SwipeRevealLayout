@@ -2,12 +2,12 @@ apply plugin: 'com.android.application'
 
 android {
     namespace 'com.chauthai.swipereveallayoutdemo'
-    compileSdkVersion 24
+    compileSdkVersion 36
 
     defaultConfig {
         applicationId "com.chauthai.swipereveallayout"
         minSdkVersion 14
-        targetSdkVersion 24
+        targetSdkVersion 36
         versionCode 7
         versionName "1.4.0"
     }
@@ -20,6 +20,10 @@ android {
 
     lint {
         abortOnError false
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_11
+        targetCompatibility JavaVersion.VERSION_11
     }
 }
 

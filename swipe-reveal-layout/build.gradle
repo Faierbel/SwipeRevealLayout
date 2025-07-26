@@ -3,11 +3,11 @@ apply plugin: 'maven-publish'
 
 android {
     namespace 'com.chauthai.swipereveallayout'
-    compileSdkVersion 24
+    compileSdkVersion 36
 
     defaultConfig {
         minSdkVersion 9
-        targetSdkVersion 24
+        targetSdkVersion 36
         versionCode 8
         versionName "1.4.1"
     }
@@ -18,8 +18,31 @@ android {
         }
     }
 
+    publishing {
+        singleVariant("release"){
+            withSourcesJar()
+        }
+    }
+
     lint {
         abortOnError false
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_11
+        targetCompatibility JavaVersion.VERSION_11
+    }
+}
+
+publishing {
+    publications {
+        maven(MavenPublication) {
+            groupId = 'com.chauthai.swipereveallayout'
+            version = '1.4.1'
+
+            afterEvaluate {
+                from components.release
+            }
+        }
     }
 }
 
