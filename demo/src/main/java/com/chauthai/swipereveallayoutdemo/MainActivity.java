@@ -9,7 +9,6 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 
-
 public class MainActivity extends AppCompatActivity {
 
     @Override
@@ -29,18 +28,17 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case R.id.action_recycler_view:
-                startActivity(new Intent(this, RecyclerDemoActivity.class));
-                return true;
+        int itemId = item.getItemId();
 
-            case R.id.action_list_view:
-                startActivity(new Intent(this, ListDemoActivity.class));
-                return true;
-
-            case R.id.action_grid_view:
-                startActivity(new Intent(this, GridActivity.class));
-                return true;
+        if (itemId == R.id.action_recycler_view) {
+            startActivity(new Intent(this, RecyclerDemoActivity.class));
+            return true;
+        } else if (itemId == R.id.action_list_view) {
+            startActivity(new Intent(this, ListDemoActivity.class));
+            return true;
+        } else if (itemId == R.id.action_grid_view) {
+            startActivity(new Intent(this, GridActivity.class));
+            return true;
         }
 
         return false;

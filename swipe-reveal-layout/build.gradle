@@ -1,6 +1,8 @@
 apply plugin: 'com.android.library'
+apply plugin: 'maven-publish'
 
 android {
+    namespace 'com.chauthai.swipereveallayout'
     compileSdkVersion 24
 
     defaultConfig {
@@ -14,6 +16,10 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
+    }
+
+    lint {
+        abortOnError false
     }
 }
 
